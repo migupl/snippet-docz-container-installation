@@ -77,6 +77,26 @@ __DOCZ_SOURCE__ environment param defines where source files are.
 
 Obviously, we use **http://localhost:8883/hello** because the instance is running with port 3000 forwarded to **8883**.
 
+## Production static site creation
+
+Generate production static site into default folder dev/**.docz/dist** executing
+
+```bash
+$ sudo podman run -u $(id -u ${USER}):$(id -g ${USER}) -e DOCZ_SOURCE=./src -v $(pwd)/doc:/doc_your_things -it documenting-your-things yarn docz:build
+```
+
+And it can deployed to any server or running at localhost such as
+
+```bash
+$ python -m http.server &
+```
+
+Open in your favourite browser the URL http://localhost:8000/hello and ... voila!. It should look something like
+
+![Image of Grafana dashboard](./assets/hello_world.jpg)
+
 ---
+That's all folks!!!. I hope it's helpful.
+
 [1]: https://www.docz.site/introduction/getting-started
 [2]: https://podman.io/
