@@ -52,6 +52,31 @@ docker.io/antora/antora             latest   1493c665c78f   2 months ago    94.2
 As you can see the image name is preceded by the registry site. The new **documenting-your-things** 
 image is registered in the local machine while the base alpine image is registered at docker.io.
 
+Install [docz][1] (intallation files are in local folder) executing
+
+```bash
+$ sudo podman run -u $(id -u ${USER}):$(id -g ${USER}) -v $(pwd)/doc:/doc_your_things -it documenting-your-things yarn add docz docz-theme-default --dev
+```
+
+## Running development server
+ 
+```bash
+$ sudo podman run -u $(id -u ${USER}):$(id -g ${USER}) -e DOCZ_SOURCE=./src -v $(pwd)/doc:/doc_your_things -p 8883:3000 -it  documenting-your-things
+Compiled successfully!
+
+You can now view documenting_your_things in the browser.
+
+  Local:            http://localhost:3000/
+  On Your Network:  http://10.88.0.85:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+```
+
+__DOCZ_SOURCE__ environment param defines where source files are.
+
+Obviously, we use **http://localhost:8883/hello** because the instance is running with port 3000 forwarded to **8883**.
+
 ---
 [1]: https://www.docz.site/introduction/getting-started
 [2]: https://podman.io/
