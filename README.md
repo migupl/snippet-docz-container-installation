@@ -46,7 +46,6 @@ $ sudo podman images
 REPOSITORY                          TAG      IMAGE ID       CREATED         SIZE
 localhost/documenting-your-things   latest   52ada945bcd7   5 seconds ago   37.3 MB
 docker.io/library/alpine            3.9      caf27325b298   4 weeks ago     5.8 MB
-docker.io/antora/antora             latest   1493c665c78f   2 months ago    94.2 MB
 ```
 
 As you can see the image name is preceded by the registry site. The new **documenting-your-things** 
